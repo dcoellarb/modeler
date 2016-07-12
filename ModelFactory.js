@@ -18,11 +18,13 @@ class ModelFactory {
   * @return {Object} model
   */
   static createModel(collection, factoryMethod) {
+    ModelFactory.factoryMethod = factoryMethod;
     // Create the model
     const model = factoryMethod(collection);
 
     // Add adicional members and function
     model.collection = collection;
+    model.factoryMethod = factoryMethod;
 
     /**
     * toJson() sets Object properties
@@ -38,7 +40,7 @@ class ModelFactory {
         if (field.type === ParseDataTypes.Pointer) {
           const pointerObject = parseObject.get(field.name);
           if (typeof pointerObject === 'object') {
-            const pointerModel = ModelFactory.createModel(field.collection);
+            const pointerModel = ModelFactory.createModel(field.collection, ModelFactory.factoryMethod);
             pointerModel.toJson(pointerObject);
             model[field.name] = pointerModel;
           } else {
