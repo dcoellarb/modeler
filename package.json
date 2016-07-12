@@ -1,6 +1,6 @@
 {
   "name": "data-modeler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library abstract the complexity of accesing multiple Paas",
   "main": "index.js",
   "scripts": {
