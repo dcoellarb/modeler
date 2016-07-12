@@ -1,8 +1,8 @@
 {
-  "name": "modeler",
-  "version": "1.0.0",
+  "name": "data-modeler",
+  "version": "1.0.1",
   "description": "Library abstract the complexity of accesing multiple Paas",
-  "main": "DataParse.js",
+  "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register",
     "watch:test": "npm t -- -w",
